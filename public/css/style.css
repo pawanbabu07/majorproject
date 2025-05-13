@@ -92,3 +92,16 @@ body{
     background-color: #fe424d !important ;
     border: none !important;
 }
+
+/* show diteal */
+
+.show-img{
+    height: 30vh;
+}
+
+.btns{
+    display: flex;
+}
+.delete-btn{
+    margin-left: 1rem;
+}

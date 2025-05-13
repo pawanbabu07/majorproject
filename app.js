@@ -30,7 +30,7 @@ async function main() {
 
 
 app.get("/",(req,res)=>{
-    res.send("hii, i am pawan!");
+    res.redirect("/listings")
 });
 
 //Index route
