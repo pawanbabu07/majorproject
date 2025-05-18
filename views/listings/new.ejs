@@ -4,22 +4,24 @@
     <div class="row mt-3">
         <div class="col-8 offset-2">
             <h3>Create a New Listing</h3>
-    <form method="POST" action="/listings">
+    <form method="POST" action="/listings" class=" needs-validation" novalidate>
         <div class="mb-3">
             <label for="titel" class="form-label">Title</label>
             <input type="text" 
             placeholder="Enter titel" 
             name="listing[title]"
-            class="form-control">
+            class="form-control"
+            required>
         </div>
-        <div class="mb-3">
+        <div class="mb-3  needs-validation" novalidate>
             <label for="description" class="form-label">Description</label>
             <textarea 
             rows="7" 
             cols="40" 
             placeholder="Enter text" 
             name="listing[description]"
-            class="form-control"></textarea>
+            class="form-control"
+            required></textarea>
         
         </div>
         <div class="mb-3">
@@ -30,28 +32,31 @@
             class="form-control">
         </div>
         <div class="row">
-            <div class="mb-3 col-md-4">
+            <div class="mb-3 col-md-4  needs-validation" novalidate>
                 <label for="price" class="form-label">Price</label>
                 <input type="number"  
                 placeholder="Enter price" 
                 name="listing[price]"
-                class="form-control">
+                class="form-control"
+                required>
             </div>
-            <div class="mb-3 col-md-8">
+            <div class="mb-3 col-md-8  needs-validation" novalidate>
                 <label for="country" class="form-label">Country</label>
                 <input type="text" 
                 placeholder="Enter country" 
                 name="listing[country]"
-                class="form-control">
+                class="form-control"
+                required>
             </div>
         </div>
        
-        <div class="mb-3">
+        <div class="mb-3  needs-validation" novalidate>
             <label for="location" class="form-label">Location</label>
             <input type="text" 
             placeholder="Enter location" 
             name="listing[location]"
-            class="form-control">
+            class="form-control"
+            required>
         
         </div>
         <button class="btn btn-dark add-btn mb-3">Add</button>

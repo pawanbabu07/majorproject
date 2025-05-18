@@ -3,19 +3,22 @@
     <div class="row mt-3">
         <div class="col-8 offset-2">
             <h3>Edit your Listing</h3>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT"
+        class=" needs-validation" novalidate>
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
+            <label for="title" class="form-label  needs-validation" novalidate>Title</label>
             <input type="text" 
             value="<%= listing.title %>" 
             name="listing[title]"
-            class="form-control">
+            class="form-control"
+            required>
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
+            <label for="description" class="form-label needs-validation" novalidate>Description</label>
             <textarea rows="7" cols="40" 
             name="listing[description]"
-            class="form-control">
+            class="form-control"
+            required>
             <%= listing.description %></textarea>
         </div>
         <div class="mb-3">
@@ -27,26 +30,29 @@
         </div>
        <div class="row">
         <div class="mb-3 col-md-4">
-            <label for="price" class="form-label">Price</label>
+            <label for="price" class="form-label needs-validation" novalidate>Price</label>
             <input type="number" 
             value="<%= listing.price %>" 
             name="listing[price]"
-            class="form-control">
+            class="form-control"
+            required>
         </div>
         <div class="mb-3 col-md-8">
-            <label for="location" class="form-label">Location</label>
+            <label for="location" class="form-label needs-validation" novalidate>Location</label>
             <input type="text" 
             value="<%= listing.location %>" 
             name="listing[location]"
-            class="form-control">
+            class="form-control"
+            required>
         </div>
        </div>
         <div class="mb-3">
-            <label for="country" class="form-label">Country</label>
+            <label for="country" class="form-label needs-validation" novalidate>Country</label>
             <input type="text" 
             value="<%= listing.country %>" 
             name="listing[country]"
-            class="form-control">
+            class="form-control"
+            required>
         </div>
         
         <button class="btn btn-dark edit-btn mt-3">Edit</button>
