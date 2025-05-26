@@ -7,6 +7,7 @@ const ejsMate = require("ejs-mate");
 const wrapAsync=require("./utils/wrapAsyc.js");
 const ExpressError=require("./utils/ExpressError.js");
 const {listingSchema}= require("./schema.js");
+const Review= require("./models/review.js");
 
 const app = express();
 app.set("view engiine","ejs");
@@ -106,4 +107,15 @@ app.delete("/listings/:id",
 app.use((err, req, res, next)=>{
     let{statusCode = 500, message = "Somthing eont wrong!"}=err;
     res.status(statusCode).send(message);
+});
+
+//review rout
+app.post("/listings/:id/reviews", async(req, res)=>{
+    let listing=await Listing.findById(req.params.id);
+    let newReview = new Review(req.body.review);
+    listing.review.push(newReview);
+    await newReview.save();
+    await listing.save();
+    console.log("rew review save");
+    
 });
