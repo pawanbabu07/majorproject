@@ -117,5 +117,5 @@ app.post("/listings/:id/reviews", async(req, res)=>{
     await newReview.save();
     await listing.save();
     console.log("rew review save");
-    
+    res.redirect("/listings");
 });
