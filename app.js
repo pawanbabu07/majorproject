@@ -13,7 +13,7 @@ const LocalStrategy=require('passport-local');
 const User=require('./models/user.js');
 
 const app = express();
-app.set("view engiine","ejs");
+app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended: true}));
@@ -62,6 +62,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next)=>{
     res.locals.success=req.flash('success');
     res.locals.error=req.flash('error');
+    res.locals.currUser=req.user;
     next();
 })
 
@@ -71,6 +72,7 @@ app.use('/',userRouters);
 
 app.use((err, req, res, next)=>{
     // let{statusCode = 500, message = "Somthing eont wrong!"}=err;
+    // console.log(err);
     res.render("listings/error.ejs",{err});
 });
 
